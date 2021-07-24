@@ -328,11 +328,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
      );
      DocumentSnapshot userDoc = await userCollection.doc(
          FirebaseAuth.instance.currentUser.uid).get();
-     setState(() async {
-       profile_pic = await userDoc['profile'];
-       anotherprofile = profile_pic;
-       initState();
-
+     profile_pic = await userDoc['profile'];
+     anotherprofile = profile_pic;
+     setState(()  {
+       username = userDoc['username'];
      });
      print('this is ########3 ${imageurl}');
     }
